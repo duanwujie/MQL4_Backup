@@ -1,0 +1,142 @@
+%%input macros (i.e. write your own macros file called MacroFile1.tex)
+%\include{Macros/MacroFile1}
+
+ \documentclass[oneside,12pt]{Classes/CUEDthesisPSnPDF}
+
+
+\ifpdf
+    \pdfinfo { /Title  (CUED PhD and MPhil Thesis Classes)
+               /Creator (TeX)
+               /Producer (pdfTeX)
+               /Author (Harish Bhanderi harish.bhanderi@cantab.net)
+               /CreationDate (D:20030101000000)  %format D:YYYYMMDDhhmmss
+               /ModDate (D:20030815213532)
+               /Subject (Writing a PhD thesis in LaTeX)
+               /Keywords (PhD, Thesis)}
+    \pdfcatalog { /PageMode (/UseOutlines)
+                  /OpenAction (fitbh)  }
+\fi
+
+\title{外汇分析\\[1ex]
+     $\skull$   }
+
+\ifpdf
+  \author{\href{mailto:dhacklove@163.com}{Dan Panic}}
+  \collegeordept{}
+%  \collegeordept{\href{http://www.eng.cam.ac.uk}{Department of Engineering}}
+% \university{\href{http://www.cam.ac.uk}{University of Cambridge}}
+  \university{}
+% insert below the file name that contains the crest in-place of 'UnivShield'
+  \crest{\includegraphics[width=30mm]{UnivShield}}
+\else
+  \author{Dan Panic \\[1ex]
+	dhacklove@163.com
+	}
+  \collegeordept{}
+  %\collegeordept{Department of Engineering}
+  \university{}
+  %\university{University of Cambridge}
+% insert below the file name that contains the crest in-place of 'UnivShield'
+  \crest{\includegraphics[bb = 0 0 292 336, width=30mm]{UnivShield}}
+\fi
+%
+% insert below the file name that contains the crest in-place of 'UnivShield'
+% \crest{\IncludeGraphicsW{UnivShield}{40mm}{14 14 73 81}}
+%
+\renewcommand{\submittedtext}{}
+%dwj\degree{Doctor of Philosophy}
+%dwj\degreedate{Yet to be decided}
+\degree{}
+\degreedate{}
+
+% turn of those nasty overfull and underfull hboxes
+\hbadness=10000
+\hfuzz=50pt
+
+% Put all the style files you want in the directory StyleFiles and usepackage like this:
+\usepackage{StyleFiles/watermark}
+\usepackage{hyperref}
+
+% Comment out the next line to get single spacing
+\onehalfspacing
+
+\begin{document}
+
+%\language{english}
+
+% A page with the abstract on including title and author etc may be
+% required to be handed in separately. If this is not so, then comment
+% the below 3 lines (between '\begin{abstractseparte}' and 
+% 'end{abstractseparate}'), normally like a declaration ... needs some more
+% work, mind as environment abstracts creates a new page!
+% \begin{abstractseparate}
+%   \input{Abstract/abstract}
+% \end{abstractseparate}
+
+
+
+
+% Using the watermark package which is in StyleFiles/
+% and to remove DRAFT COPY ONLY appearing on the top of all pages comment out below line
+%\watermark{DRAFT COPY ONLY}
+
+
+\maketitle
+
+%set the number of sectioning levels that get number and appear in the contents
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\frontmatter % book mode only
+\pagenumbering{roman}
+%\include{Dedication/dedication}
+%\include{Acknowledgement/acknowledgement}
+%\include{Abstract/abstract}
+
+\begin{comment}
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+1 1 1 1 1 1 1
+\end{comment}
+
+\renewcommand{\contentsname}{目录}
+\tableofcontents
+%\renewcommand\listfigurename{插图}
+%\listoffigures
+
+%\makeatletter
+%\@tempcnta=128
+%\loop \catcode\@tempcnta=13 \ifnum\@tempcnta<255 \advance \@tempcnta \@ne
+%\repeat
+%\makeatother
+
+\mainmatter % book mode only
+%\include{Introduction/introduction}
+
+
+
+\include{Chapter1/chapter1} % * 内存管理
+%\include{Chapter2/chapter2} % 内核启动过程
+%\include{Chapter3/chapter3} %常用函数原理
+%\include{Chapter4/chapter4} % * I2C
+%\include{Chapter5/chapter5} % * 内核驱动模型
+%\include{Chapter6/chapter6} %电源管理
+%\include{Chapter7/chapter7} %KVM
+%\include{Chapter8/chapter8} %BT
+%\include{Chapter9/chapter9} % Grub%
+%\include{Chapter25/chapter25} % * Makefile%
+%\include{Terms/terms}
+%\include{Conclusions/conclusions}
+
+\backmatter % book mode only
+%\appendix
+%\include{Appendix1/appendix1}
+%\include{Appendix2/appendix2}
+
+%\bibliographystyle{plainnat}
+%\bibliographystyle{Classes/CUEDbiblio}
+%\bibliographystyle{Classes/jmb}
+%\bibliographystyle{Classes/jmb} % bibliography style
+%\renewcommand{\bibname}{参考文献} % changes default name Bibliography to References
+%\bibliography{References/references} % References file
+
+\end{document}

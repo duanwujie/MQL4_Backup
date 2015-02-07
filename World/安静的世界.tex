@@ -1,0 +1,105 @@
+%\documentclass[oneside,12pt]{book}
+\documentclass[oneside,12pt]{article}
+\usepackage{xltxtra,fontspec,xunicode}
+\usepackage[slantfont,boldfont]{xeCJK} % 允许斜体和粗体
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{skull}
+\usepackage{fancyhdr}
+\titleformat{\chapter}[display]{\centering\Huge\bfseries}{}{1em}{}
+\setCJKmainfont{SimSun}
+
+\usepackage[ plainpages = false, pdfpagelabels, 
+             bookmarks,
+             bookmarksopen = true,
+             bookmarksnumbered = true,
+             breaklinks = true,
+             linktocpage,
+             pagebackref,
+             colorlinks = true,
+             linkcolor = blue,
+             urlcolor  = blue,
+             citecolor = red,
+             anchorcolor = green,
+             hyperindex = true,
+             hyperfigures
+             ]{hyperref}
+
+
+\usepackage{nomencl}
+\makenomenclature
+\renewcommand\nomgroup[1]{%
+  \ifthenelse{\equal{#1}{A}}{%
+   \item[\textbf{Roman Symbols}] }{%             A - Roman
+    \ifthenelse{\equal{#1}{G}}{%
+     \item[\textbf{Greek Symbols}]}{%             G - Greek
+      \ifthenelse{\equal{#1}{R}}{%
+        \item[\textbf{Superscripts}]}{%              R - Superscripts
+          \ifthenelse{\equal{#1}{S}}{%
+           \item[\textbf{Subscripts}]}{{%             S - Subscripts
+	    \ifthenelse{\equal{#1}{X}}{%
+	     \item[\textbf{Other Symbols}]}{{%    X - Other Symbols
+	    \ifthenelse{\equal{#1}{Z}}{%
+	     \item[\textbf{Acronyms}]}%              Z - Acronyms
+              			{{}}}}}}}}}}
+\setlength{\hoffset}{0.00cm}
+\setlength{\voffset}{0.00cm}
+
+\setlength{\evensidemargin}{1.96cm}
+%\setlength{\oddsidemargin}{-0.54cm}
+\setlength{\topmargin}{1mm}
+\setlength{\headheight}{1.36cm}
+\setlength{\headsep}{1.00cm}
+\setlength{\textheight}{20.84cm}
+\setlength{\textwidth}{14.5cm}
+\setlength{\marginparsep}{1mm}
+\setlength{\marginparwidth}{3cm}
+\setlength{\footskip}{2.36cm}
+
+%据说可以调整行距
+\renewcommand{\baselinestretch}{1.62}
+\title{交易策略}
+
+\pagestyle{fancy}                    % 设置页眉
+
+
+
+
+
+
+\author{\href{mailto:dhacklove@163.com}{段武杰}}
+
+\begin{document}    %文档开始
+\maketitle          %插入标题
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\renewcommand{\contentsname}{目录}
+
+\lhead{我生于贫穷，但不能死于贫穷}
+
+%\pdfbookmark[1]{目录}{anchor} %将目录加入标签
+%\tableofcontents    %插入目录
+%\mainmatter % book mode only
+
+
+
+%\include{序言}
+%\include{计划}
+%\include{认识自己}       %认识自己
+%\include{交易系统胜算计算}   %交易系统胜算计算
+%\include{市场认知}       %市场认知
+\include{交易策略}       %交易策略
+%\include{经济数据分析}    %经济数据分析
+%\include{技术分析}
+%\include{反身性初步尝试}
+%\include{Pro}
+
+
+
+%\include{交易日志}	       %交易日志
+%\include{外汇黑客}
+%\include{市场哲学}
+
+
+
+\end{document}
