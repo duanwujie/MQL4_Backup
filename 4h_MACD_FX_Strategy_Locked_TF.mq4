@@ -88,12 +88,10 @@ int init()
    SetIndexLabel(4,"H4 EMA 365");
 //----
 //----
-
-   if (corner>3) corner=3;
-   if (corner==0) xdispl=350;
-   if (xdispl<1) xdispl=1;
-   if (ydispl<1) xdispl=1;
-
+   if (corner > 3) corner = 3;
+   if (corner == 0) xdispl = 350;
+   if (xdispl < 1) xdispl = 1;
+   if (ydispl < 1) xdispl = 1;
 //---- Text Object
    ObjectCreate("H4_Rhythm", OBJ_LABEL, 0, 0, 0);
    ObjectSet("H4_Rhythm", OBJPROP_CORNER, corner);
@@ -120,10 +118,8 @@ int start()
    int    counted_bars=IndicatorCounted();
    if(counted_bars>0) counted_bars--;
    limit=Bars-counted_bars;
-
 //Moving averages stuff
-if(Period()<240)  
-{
+   if (Period() < PERIOD_H4) {
    mx=iBarShift(NULL,PERIOD_H4,iTime(NULL,0,limit),false);//iBars(NULL,PERIOD_H4);
    my=limit;
    for (x=iBarShift(NULL,PERIOD_H4,iTime(NULL,0,limit),false); x>=0; x--)
@@ -165,14 +161,12 @@ if(Period()<240)
                
             }
       }
-   int k;
-   for(k=my; k>=0; k--)
-      {
-         ExtMapBuffer1[k]=EMA8m;
-         ExtMapBuffer2[k]=EMA21m;
-         ExtMapBuffer3[k]=SMA89m;
-         ExtMapBuffer4[k]=SMA200m;
-         ExtMapBuffer5[k]=EMA365m;
+      for (int k = my; k >= 0; k--) {
+         ExtMapBuffer1[k] = EMA8m;
+         ExtMapBuffer2[k] = EMA21m;
+         ExtMapBuffer3[k] = SMA89m;
+         ExtMapBuffer4[k] = SMA200m;
+         ExtMapBuffer5[k] = EMA365m;
       }
       
    //Rhythm stuff
